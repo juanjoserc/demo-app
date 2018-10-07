@@ -1,0 +1,41 @@
+<div class="jumbotron form-font">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>CONTACT FORM</h2>
+                <div *ngIf="success" class="alert alert-info">
+								  <strong>Your words shall be heard!</strong>
+								</div>
+                <form *ngIf="!success" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">{{sucess}}
+                        <label>Name</label>
+                        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && cf.name.errors }" />
+                        <div *ngIf="submitted && cf.name.errors" class="invalid-feedback">
+                            <div *ngIf="cf.name.errors.required">Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && cf.email.errors }" />
+                        <div *ngIf="submitted && cf.email.errors" class="invalid-feedback">
+                            <div *ngIf="cf.email.errors.required">Email is required</div>
+                            <div *ngIf="cf.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea formControlName="message" class="form-control" [ngClass]="{ 'is-invalid': submitted && cf.message.errors }" minlenght="10" maxlength="60" ></textarea>
+                        <div *ngIf="submitted && cf.message.errors" class="invalid-feedback">
+                            <div *ngIf="cf.message.errors.required">Message is required</div>
+                            <div *ngIf="cf.message.errors.minlength">Message must be at least 10 characters</div>
+                            <div *ngIf="cf.message.errors.maxlength">Message must be less than 50 characters</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button [disabled]="loading" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

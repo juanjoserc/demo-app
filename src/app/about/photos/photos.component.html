@@ -1,0 +1,22 @@
+<div class="btn-group btn-padding">
+	  <button class="btn btn-success" type="button" (click)="showPhotosSection()">
+	    Click Me!
+	  </button>
+</div>
+  <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <h1 class="gallery-title">Photo Galery</h1>
+  </div>  
+<div *ngIf="showPhotos">
+	 <table class="table">
+    <tbody>
+				<tr *ngFor='let row of photosPerRow(5); let i = index;'>
+					<td *ngFor="let photo of photos.slice(elementsPerRow*i,(elementsPerRow*i)+elementsPerRow)"><img src="{{ photo.thumbnailUrl}}" id="{{ photo.id }}"  [attr.data-url]="photo.url" class="img-fluid imgSmall" (click)="showBigPicture(photo.url,true)"></td>
+				</tr>
+		</tbody>
+	</table>
+</div>
+<div  *ngIf="showOverlay" style="display:block;" id="overlay" (click)="showBigPicture('',false)">
+	<div id="overlayPhoto">
+	    <img id="imgBig" src="{{ bigPicUrl }}" alt=""  class="img-fluid"/>
+	</div>
+</div>

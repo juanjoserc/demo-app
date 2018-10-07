@@ -4,44 +4,12 @@
 	    Menu
 	  </button>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-	    <a class="dropdown-item" href="#">Posts</a>
-	    <a class="dropdown-item" href="#">Comments</a>
-	    <a class="dropdown-item" href="#">Photos</a>
+	    <a class="dropdown-item" routerLink="/about" (click)="showPosts()">Posts</a>
+	    <a class="dropdown-item" routerLink="/about" (click)="showComments()">Comments</a>
+	    <a class="dropdown-item" routerLink="/about" (click)="showPhotos()">Photos</a>
 	  </div>
 	</div>
 </div>
-
-<div class="btn-group btn-padding">
-	  <button class="btn btn-success" type="button">
-	    Click Me!
-	  </button>
-</div>
-<div>
-	<ng-container *ngFor="let user of users">
-		<div>
-			{{user.name}} <a href="{{user.email}}">{{user.email}}</a>
-		</div>	
-	</ng-container>
-</div>
-<div>user: {{user.name}}
-	<ng-container *ngFor="let post of posts | slice:0:10;">
-		<div>
-			{{user.name}} <a href="{{user.email}}">users2[post.userId].email {{user.email}}</a><br><h4>{{post.title}}</h4><p>{{post.body}}</p>
-		</div>	
-	</ng-container>
-</div>
-<div>
-	<ng-container *ngFor="let comment of comments | slice:0:10;">
-		<div>
-			{{comment.name}} {{comment.email}}
-			<p>{{comment.body}}</p>
-		</div>	
-	</ng-container>
-</div>
-<div>
-	<ng-container *ngFor="let photo of photos | slice:0:10;">
-		<div>
-			<img src="{{ photo.thumbnailUrl}}">
-		</div>	
-	</ng-container>
-</div>
+<app-posts *ngIf="showSection == 'posts'"></app-posts>
+<app-comments *ngIf="showSection == 'comments'"></app-comments>
+<app-photos *ngIf="showSection == 'photos'"></app-photos>

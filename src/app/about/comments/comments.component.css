@@ -1,0 +1,29 @@
+.comment-section{
+		padding-top: 50px;
+}
+.comment{
+	margin: 0 0 80px;
+}
+.comment-header {
+	margin: 0 0 15px;
+}
+.comment-font{
+	font-family: "Roboto Condensed", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.comment-title{
+	line-height: 1.4;
+    font-size: 18px;
+    color: #111;
+    margin: 0;
+}
+.comment-email{
+	font-size: 11px;
+    color: #aaa;
+}
+.comment-body{
+	border-top: 1px dotted #c2c2c2;
+    padding-top: 20px;
+    margin-top: 10px;
+}

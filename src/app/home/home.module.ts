@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HelloComponent } from './hello/hello.component';
+import { DateComponent } from './date/date.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import { HelloComponent } from './hello/hello.component';
     HomeRoutingModule,
     FormsModule
   ],
-  declarations: [HelloComponent]
+  declarations: [HelloComponent, DateComponent]
 })
-export class HomeModule { }
+export class HomeModule { 
+}

@@ -1,0 +1,16 @@
+<div class="btn-group btn-padding">
+	  <button class="btn btn-success" type="button" (click)="showPostsSection()">
+	    Click Me!
+	  </button>
+</div>
+<div *ngIf="showPosts" class="post-section">
+	<ng-container *ngFor="let post of posts">
+		<div class="post">
+			<div class="post-header post-font">
+				<h2 clas="post-tile">{{post.title}}</h2>
+				<div class="post-author">{{users[post.userId].name}} <a href="{{users[post.userId].email}}">{{users[post.userId].email}}</a></div>
+				<div class="post-body">{{post.body}}</div>
+			</div>	
+		</div>	
+	</ng-container>
+</div>

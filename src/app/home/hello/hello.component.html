@@ -1,6 +1,7 @@
-<div class="form-group">
-	<input type="text" [(ngModel)]="date">
-</div>
-<p>
-  Hello Angular! Today date is: {{ date }}
-</p>
+
+<section class="hello">
+	<div class="hello-message">
+  Hello Angular! 
+  </div>
+  <div class="hello-message hello-date">Today date is: <app-date [today] ="today"></app-date></div>
+</section>

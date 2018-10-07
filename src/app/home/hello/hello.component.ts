@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-hello',
@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelloComponent implements OnInit {
 
-	date = new Date();
-  constructor() { }
+ today = new Date();
+ constructor() { }
 
   ngOnInit() {
   }

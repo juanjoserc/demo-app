@@ -1,0 +1,18 @@
+.hello {
+	padding: 10%;
+}
+.hello-message{
+	  display: block;
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Roboto Condensed", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 24px;
+    font-weight: 400;
+    font-size: 48px;
+}
+
+.hello-date{
+	  letter-spacing: 4px;
+    font-size: 15px;
+}

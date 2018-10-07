@@ -4,6 +4,9 @@ import { HttpModule } from '@angular/http';
 
 import { AboutRoutingModule } from './about-routing.module';
 import { MenuComponent } from './menu/menu.component';
+import { PostsComponent } from './posts/posts.component';
+import { CommentsComponent } from './comments/comments.component';
+import { PhotosComponent } from './photos/photos.component';
 
 @NgModule({
   imports: [
@@ -11,7 +14,7 @@ import { MenuComponent } from './menu/menu.component';
     AboutRoutingModule,
     HttpModule
   ],
-  declarations: [MenuComponent],
+  declarations: [MenuComponent, PostsComponent, CommentsComponent, PhotosComponent],
   providers: [MenuComponent]
 })
 export class AboutModule { }
