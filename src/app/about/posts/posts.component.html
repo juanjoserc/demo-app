@@ -4,7 +4,7 @@
 	  </button>
 </div>
 <div *ngIf="showPosts" class="post-section">
-	<ng-container *ngFor="let post of posts">
+	<ng-container *ngFor="let post of posts; trackBy: trackByFn">
 		<div class="post">
 			<div class="post-header post-font">
 				<h2 clas="post-tile">{{post.title}}</h2>

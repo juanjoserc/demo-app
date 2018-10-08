@@ -4,7 +4,7 @@
 	  </button>
 </div>
 <div  *ngIf="showComments" class="comment-section">
-	<ng-container *ngFor="let comment of comments">
+	<ng-container *ngFor="let comment of comments; trackBy: trackByFn">
 		<div class="comment">
 			<div class="comment-header comment-font">
 				<h2>{{ posts[comment.postId].title }}</h2>

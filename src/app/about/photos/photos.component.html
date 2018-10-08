@@ -10,7 +10,7 @@
 	 <table class="table">
     <tbody>
 				<tr *ngFor='let row of photosPerRow(5); let i = index;'>
-					<td *ngFor="let photo of photos.slice(elementsPerRow*i,(elementsPerRow*i)+elementsPerRow)"><img src="{{ photo.thumbnailUrl}}" id="{{ photo.id }}"  [attr.data-url]="photo.url" class="img-fluid imgSmall" (click)="showBigPicture(photo.url,true)"></td>
+					<td *ngFor="let photo of photos.slice(elementsPerRow*i,(elementsPerRow*i)+elementsPerRow); trackBy: trackByFn"><img src="{{ photo.thumbnailUrl}}" id="{{ photo.id }}"  [attr.data-url]="photo.url" class="img-fluid imgSmall" (click)="showBigPicture(photo.url,true)"></td>
 				</tr>
 		</tbody>
 	</table>

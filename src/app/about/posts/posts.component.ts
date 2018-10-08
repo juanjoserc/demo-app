@@ -63,4 +63,8 @@ export class PostsComponent implements OnInit {
         );
   }
 
+  trackByFn(index, post) {    
+   return post.id; // unique id corresponding to the item
+  }
+
 }

@@ -65,4 +65,7 @@ export class CommentsComponent implements OnInit {
         );
   }
 
+  trackByFn(index, comment) {    
+   return comment.id; // unique id corresponding to the item
+  }
 }

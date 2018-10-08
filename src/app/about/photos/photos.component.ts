@@ -30,7 +30,7 @@ export class PhotosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  	this.getPhotos();;
+  	this.getPhotos();
   }
 
   showPhotosSection(){
@@ -55,5 +55,9 @@ export class PhotosComponent implements OnInit {
   showBigPicture(url: string,toogle: boolean){
   	this.bigPicUrl=url;
   	this.showOverlay = toogle;
+  }
+
+  trackByFn(index, photo) {    
+   return photo.id; // unique id corresponding to the item
   }
 }
