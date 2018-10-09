@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { map, catchError } from "rxjs/operators";
 
-import * as $ from 'jquery';
-
 import { Photo } from '../photo'
 import { PhotoService } from '../photo.service';
 
@@ -13,30 +11,32 @@ import { PhotoService } from '../photo.service';
   styleUrls: ['./photos.component.css'],
   providers: [PhotoService]
 })
+
 export class PhotosComponent implements OnInit {
- showPhotos: boolean = false;
- elementLimit = 10;
- photos: Photo[];
+ showPhotos: boolean = false;  //toogle display of photo component 
+ elementLimit = 10;  //number of photos to show
+ photos: Photo[];  //stores photo observable values
  errorMessage: string;
- elementsPerRow = 1;
- showOverlay: boolean = false;
- bigPicUrl: string;
- display = 'block';
+ elementsPerRow = 1; //controls how many photos per row are displayed. 1 is the default number of photos per row.
+ showOverlay: boolean = false; //Controls the displaying of an overlay that contains a photo's bigger image
+ bigPicUrl: string; //stores the current photo url that will be rendered on the overlay
 
 
-  constructor(
-    private http: Http,
-    private photosService: PhotoService
-  ) { }
+	constructor(
+	  private http: Http,
+	  private photosService: PhotoService
+	) { }
 
   ngOnInit() {
   	this.getPhotos();
   }
 
+  //toogles photo section on the view	
   showPhotosSection(){
   	this.showPhotos = true;
   }
   
+  //call to photo service http
   getPhotos(){
     this.photosService.getPhotos()
       .subscribe(

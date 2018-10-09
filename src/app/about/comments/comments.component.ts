@@ -13,9 +13,9 @@ import { PostService } from '../post.service';
   styleUrls: ['./comments.component.css'],
   providers: [CommentService, PostService]
 })
+
 export class CommentsComponent implements OnInit {
 	showComments: boolean = false;
-	commentsArray: any = [];
 	comments: Comment[];
 	postsIds: any = []; //Store users IDs extracted from posts. It'll be iterated to call user service and get comments's data
 	posts: any = [];
@@ -23,7 +23,7 @@ export class CommentsComponent implements OnInit {
 
 
   errorMessage: string;
-  mode = "Observable";
+  mode = 'Observable';
 
   constructor( private http: Http,
     private commentsService: CommentService,
@@ -31,7 +31,7 @@ export class CommentsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  	  this.getComments(this.elementLimit);
+  	this.getComments(this.elementLimit);
   }
 
   showCommentsSection(){
@@ -42,19 +42,18 @@ export class CommentsComponent implements OnInit {
     this.commentsService.getComments()
       .subscribe(
         comments => { comments = comments.slice(0,elementLimit);
-                   this.comments = comments;
-                  for(let comment of comments){
-                    if(this.postsIds.indexOf(comment.postId) === -1){ 
-                     this.postsIds.push(comment.postId);
-                    } 
-                  }
-                  //this.getUsers(this.usersIds); 
-                  this.postsIds.forEach(postId => {
-                      this.getPost(postId);
-                    })
-                 },
+                      this.comments = comments;
+                      for(let comment of comments){
+                        if(this.postsIds.indexOf(comment.postId) === -1){ 
+                         this.postsIds.push(comment.postId);
+                        } 
+                      }
+                      this.postsIds.forEach(postId => {
+                          this.getPost(postId);
+                        })
+                    },
         error => this.errorMessage = <any>error
-        ); 
+      ); 
   }
 
   getPost(id: number){
@@ -66,6 +65,6 @@ export class CommentsComponent implements OnInit {
   }
 
   trackByFn(index, comment) {    
-   return comment.id; // unique id corresponding to the item
+    return comment.id; // unique id corresponding to the item
   }
 }

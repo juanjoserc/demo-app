@@ -1,16 +1,17 @@
 <div class="btn-group btn-padding">
-	  <button class="btn btn-success" type="button" id="comments" (click)="showCommentsSection()">
-	    Click Me!
-	  </button>
+	<button class="btn btn-success" type="button" id="comments" (click)="showCommentsSection()">
+	  Click Me!
+	</button>
 </div>
 <div  *ngIf="showComments" class="comment-section">
+	<h1 class="comment-font">Comments</h1>
 	<ng-container *ngFor="let comment of comments; trackBy: trackByFn">
 		<div class="comment">
 			<div class="comment-header comment-font">
 				<h2>{{ posts[comment.postId].title }}</h2>
 				<div class="comment-email">{{comment.email}}</div>
 				<div class="comment-body">{{comment.body}}</div>
-		</div>
+			</div>
 		</div>	
 	</ng-container>
 </div>

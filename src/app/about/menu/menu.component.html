@@ -4,12 +4,12 @@
 	    Menu
 	  </button>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-	    <a class="dropdown-item" routerLink="/about" (click)="showPosts()">Posts</a>
-	    <a class="dropdown-item" routerLink="/about" (click)="showComments()">Comments</a>
-	    <a class="dropdown-item" routerLink="/about" (click)="showPhotos()">Photos</a>
+	    <a class="dropdown-item" routerLink="/about" id="posts" (click)="showSection($event)">Posts</a>
+	    <a class="dropdown-item" routerLink="/about" id="comments" (click)="showSection($event)">Comments</a>
+	    <a class="dropdown-item" routerLink="/about" id="photos" (click)="showSection($event)">Photos</a>
 	  </div>
 	</div>
 </div>
-<app-posts *ngIf="showSection == 'posts'"></app-posts>
-<app-comments *ngIf="showSection == 'comments'"></app-comments>
-<app-photos *ngIf="showSection == 'photos'"></app-photos>
+<app-posts *ngIf="activeSection == 'posts'"></app-posts>
+<app-comments *ngIf="activeSection == 'comments'"></app-comments>
+<app-photos *ngIf="activeSection == 'photos'"></app-photos>

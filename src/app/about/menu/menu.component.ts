@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { map, catchError } from "rxjs/operators";
 
 import { Observable, timer } from 'rxjs';
 
@@ -11,28 +9,18 @@ import { Observable, timer } from 'rxjs';
 })
 
 export class MenuComponent implements OnInit {
-  showSection: string = '';
+  activeSection: string = ''; //it's used to display only 1 section (componet selector) at a time according to user selection
 
   constructor(
-    private http: Http,
-
   ) { }
 
 
   ngOnInit(): void{
   }
 
-  showPosts(){
-    this.showSection = 'posts';
-  }
-
-  showComments(){
-    this.showSection = 'comments';
-  }
-
-
-  showPhotos(){
-    this.showSection = 'photos';
+  //this method set the current active section (componet selector)
+  showSection(event :any){
+    this.activeSection = event.target.id; 
   }
 
 }
