@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HelloComponent } from './hello/hello.component';
+import { DateComponent } from './date/date.component';
 
 const routes: Routes = [
-	{ path: '', component: HelloComponent }
+	{ path: '', component: DateComponent }
 ];
 
 @NgModule({

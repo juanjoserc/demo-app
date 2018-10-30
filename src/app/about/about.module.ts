@@ -15,6 +15,6 @@ import { PhotosComponent } from './photos/photos.component';
     HttpModule
   ],
   declarations: [MenuComponent, PostsComponent, CommentsComponent, PhotosComponent],
-  providers: [MenuComponent]
+  // providers: [MenuComponent]
 })
 export class AboutModule { }

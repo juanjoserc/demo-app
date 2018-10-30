@@ -1,5 +1,5 @@
 .post-section{
-		padding-top: 50px;
+	padding-top: 50px;
 }
 .post{
 	margin: 0 0 80px;
@@ -8,22 +8,22 @@
 	margin: 0 0 15px;
 }
 .post-font{
-	  font-family: "Roboto Condensed", sans-serif;
+	font-family: "Roboto Condensed", sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 .post-title{
-	  line-height: 1.4;
+	line-height: 1.4;
     font-size: 18px;
     color: #111;
     margin: 0;
 }
 .post-author{
-	  font-size: 11px;
+	font-size: 11px;
     color: #aaa;
 }
 .post-body{
-		border-top: 1px dotted #c2c2c2;
+	border-top: 1px dotted #c2c2c2;
     padding-top: 20px;
     margin-top: 10px;
 }

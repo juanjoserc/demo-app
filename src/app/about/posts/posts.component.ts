@@ -13,8 +13,8 @@ import { UserService } from '../services/user.service';
   providers: [PostService, UserService]
 })
 export class PostsComponent implements OnInit {
-  showPosts = false;
-  elementLimit = 10;
+  showPosts = false; // toggle post section show/hide
+  elementLimit = 10; // number of post to show
   user: any = [];
   users:  any = [];
   usersIds: any = [];  // Store users IDs extracted from posts. It'll be iterated to call user service and get user's data

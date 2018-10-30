@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./hello.component.css']
 })
 export class HelloComponent implements OnInit {
+  @Input() today: string;
 
- today = new Date();
  constructor() { }
 
   ngOnInit() {

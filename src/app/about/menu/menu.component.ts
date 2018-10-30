@@ -9,18 +9,18 @@ import { Observable, timer } from 'rxjs';
 })
 
 export class MenuComponent implements OnInit {
-  activeSection: string = ''; //it's used to display only 1 section (componet selector) at a time according to user selection
+  activeSection = ''; // it's used to display only 1 section (componet selector) at a time according to user selection
 
   constructor(
   ) { }
 
 
-  ngOnInit(): void{
+  ngOnInit(): void {
   }
 
-  //this method set the current active section (componet selector)
-  showSection(event :any){
-    this.activeSection = event.target.id; 
+  // this method set the current active section (component selector)
+  showSection(event: any) {
+    this.activeSection = event.target.id;
   }
 
 }
