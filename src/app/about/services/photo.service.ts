@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError } from "rxjs/operators";
+import { map, catchError } from 'rxjs/operators';
 
-import { Photo } from './photo';
+import { Photo } from '../models/photo';
 
 @Injectable()
 export class PhotoService {
@@ -18,8 +18,8 @@ export class PhotoService {
                     .pipe(map((response: Response) => <Photo[]>response.json()), catchError(this.handleError('getPosts', [])));
   }
 
-  getPhoto(id: number){
-    return this.http.get(this.photosUrl + "/" + id)
+  getPhoto(id: number) {
+    return this.http.get(this.photosUrl + '/' + id)
      .pipe(map((response: Response) => <Photo[]>response.json()), catchError(this.handleError('getPosts', [])));
   }
 

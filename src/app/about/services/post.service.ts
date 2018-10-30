@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError } from "rxjs/operators";
+import { map, catchError } from 'rxjs/operators';
 
-import { Post } from './post';
+import { Post } from '../models/post';
 
 @Injectable()
 export class PostService {
@@ -18,11 +18,11 @@ export class PostService {
                     .pipe(map((response: Response) => <Post[]>response.json()), catchError(this.handleError('getPosts', [])));
   }
 
-  getPost(id: number){
-    return this.http.get(this.postsUrl + "/" + id)
+  getPost(id: number) {
+    return this.http.get(this.postsUrl + '/' + id)
      .pipe(map((response: Response) => <Post[]>response.json()), catchError(this.handleError('getPost', [])));
   }
-  
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

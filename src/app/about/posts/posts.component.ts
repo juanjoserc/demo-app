@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { map, catchError } from "rxjs/operators";
 
-import { Post } from '../post'
-import { PostService } from '../post.service';
-import { User } from '../user'
-import { UserService } from '../user.service';
+import { Post } from '../models/post';
+import { PostService } from '../services/post.service';
+import { User } from '../models/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-posts',
@@ -14,15 +13,15 @@ import { UserService } from '../user.service';
   providers: [PostService, UserService]
 })
 export class PostsComponent implements OnInit {
-  showPosts: boolean = false;
+  showPosts = false;
   elementLimit = 10;
-  user: any=[];
+  user: any = [];
   users:  any = [];
-  usersIds: any = [];  //Store users IDs extracted from posts. It'll be iterated to call user service and get user's data
+  usersIds: any = [];  // Store users IDs extracted from posts. It'll be iterated to call user service and get user's data
   posts: Post[];
 
   errorMessage: string;
-  mode = "Observable";
+  mode = 'Observable';
 
   constructor( private http: Http,
     private postsService: PostService,
@@ -30,32 +29,32 @@ export class PostsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-  	 this.getPosts(this.elementLimit);
+    this.getPosts(this.elementLimit);
   }
 
-  showPostsSection(){
-  	this.showPosts = true;
+  showPostsSection() {
+    this.showPosts = true;
   }
 
   getPosts(elementLimit: number): void {
     this.postsService.getPosts()
       .subscribe(
-        posts => { posts = posts.slice(0,elementLimit);
+        posts => { posts = posts.slice(0, elementLimit);
                    this.posts = posts;
-                  for(let post of posts){
-                    if(this.usersIds.indexOf(post.userId) === -1){ 
+                  for (let post of posts) {
+                    if (this.usersIds.indexOf(post.userId) === -1) {
                      this.usersIds.push(post.userId);
-                    } 
+                    }
                   }
                   this.usersIds.forEach(userId => {
                       this.getUser(userId);
-                    })
+                    });
                  },
         error => this.errorMessage = <any>error
-        ); 
+        );
   }
 
-  getUser(id: number){
+  getUser(id: number) {
     this.usersService.getUser(id)
       .subscribe(
         user => this.users[id] = user,
@@ -63,7 +62,7 @@ export class PostsComponent implements OnInit {
         );
   }
 
-  trackByFn(index, post) {    
+  trackByFn(index, post) {
    return post.id; // unique id corresponding to the item
   }
 

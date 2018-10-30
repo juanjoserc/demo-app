@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { map, catchError } from "rxjs/operators";
 
-import { Comment } from '../comment'
-import { CommentService } from '../comment.service';
-import { Post } from '../post'
-import { PostService } from '../post.service';
+import { Comment } from '../models/comment';
+import { CommentService } from '../services/comment.service';
+import { Post } from '../models/post';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-comments',
@@ -15,10 +14,10 @@ import { PostService } from '../post.service';
 })
 
 export class CommentsComponent implements OnInit {
-	showComments: boolean = false;
-	comments: Comment[];
-	postsIds: any = []; //Store users IDs extracted from posts. It'll be iterated to call user service and get comments's data
-	posts: any = [];
+  showComments = false;
+  comments: Comment[];
+  postsIds: any = []; // Store users IDs extracted from posts. It'll be iterated to call user service and get comments's data
+  posts: any = [];
   elementLimit = 10;
 
 
@@ -31,32 +30,32 @@ export class CommentsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  	this.getComments(this.elementLimit);
+    this.getComments(this.elementLimit);
   }
 
-  showCommentsSection(){
-  	this.showComments = true;
+  showCommentsSection() {
+    this.showComments = true;
   }
 
   getComments(elementLimit: number): void {
     this.commentsService.getComments()
       .subscribe(
-        comments => { comments = comments.slice(0,elementLimit);
+        comments => { comments = comments.slice(0, elementLimit);
                       this.comments = comments;
-                      for(let comment of comments){
-                        if(this.postsIds.indexOf(comment.postId) === -1){ 
+                      for ( let comment of comments ) {
+                        if ( this.postsIds.indexOf(comment.postId) === -1) {
                          this.postsIds.push(comment.postId);
-                        } 
+                        }
                       }
                       this.postsIds.forEach(postId => {
                           this.getPost(postId);
-                        })
+                        });
                     },
         error => this.errorMessage = <any>error
-      ); 
+      );
   }
 
-  getPost(id: number){
+  getPost(id: number) {
     this.postsService.getPost(id)
       .subscribe(
         post => this.posts[id] = post,
@@ -64,7 +63,7 @@ export class CommentsComponent implements OnInit {
         );
   }
 
-  trackByFn(index, comment) {    
+  trackByFn(index, comment) {
     return comment.id; // unique id corresponding to the item
   }
 }

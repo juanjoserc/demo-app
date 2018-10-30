@@ -5,5 +5,5 @@ export class Photo {
     public title: string,
     public url: string,
     public thumbnailUrl: string,
-  ){}
+  ) {}
 }
